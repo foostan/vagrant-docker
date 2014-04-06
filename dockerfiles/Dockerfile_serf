@@ -1,0 +1,15 @@
+FROM ubuntu
+
+MAINTAINER foostan foostan27@gmail.com
+
+RUN echo "deb http://archive.ubuntu.com/ubuntu precise main universe" > /etc/apt/sources.list
+RUN apt-get update
+
+# install memcached
+RUN wget https://dl.bintray.com/mitchellh/serf/0.5.0_linux_amd64.zip
+RUN unzip 0.5.0_linux_amd64.zip
+RUN mv serf /usr/local/bin
+
+# ENTRYPOINT ["memcached"]
+# USER daemon
+# EXPOSE 11211
