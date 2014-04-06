@@ -5,7 +5,7 @@
   "interface": "eth0",
   "discover": "app",
 
-  "encrypt_key": "1234567890",
+  "encrypt_key": "cg8StVXbQJ0gPvMd9o7yrg==",
   "log_level": "debug",
 
   "leave_on_terminate": true,

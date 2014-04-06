@@ -11,4 +11,6 @@ RUN wget https://dl.bintray.com/mitchellh/serf/0.5.0_linux_amd64.zip --no-check-
 RUN unzip 0.5.0_linux_amd64.zip
 RUN mv serf /usr/local/bin
 
-ENTRYPOINT ["bash"]
+# set files
+ADD handle.sh /
+ADD serf.json /
