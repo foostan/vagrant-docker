@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo
 echo "SERF_EVENT:       ${SERF_EVENT}"
 echo "SERF_SELF_NAME:   ${SERF_SELF_NAME}"
 echo "SERF_SELF_ROLE:   ${SERF_SELF_ROLE}"

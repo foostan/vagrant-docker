@@ -2,21 +2,17 @@
   "tags": {
     "role": "web"
   },
-  "interface": "eth0",
   "discover": "app",
 
   "encrypt_key": "cg8StVXbQJ0gPvMd9o7yrg==",
   "log_level": "debug",
 
-  "leave_on_terminate": true,
-  "skip_leave_on_interrupt": true,
-
-  "reconnect_interval": "5s",
-  "reconnect_timeout": "30m",
-  "tombstone_timeout": "30m",
-
   "event_handlers": [
-    "./handle.sh",
-    "query:hostname=hostname"
+    "member-join=./member-join.sh",
+    "member-leave=./member-leave.sh",
+    "member-failed=./member-failed.sh",
+    "member-update=./member-update.sh",
+    "user:sh=/bin/sh",
+    "query:sh=/bin/sh"
   ]
 }

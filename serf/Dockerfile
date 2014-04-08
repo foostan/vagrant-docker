@@ -12,5 +12,9 @@ RUN unzip 0.5.0_linux_amd64.zip
 RUN mv serf /usr/local/bin
 
 # set files
-ADD handle.sh /
 ADD serf.json /
+ADD handle.sh /
+ADD member-join.sh /
+ADD member-leave.sh /
+ADD member-failed.sh /
+ADD member-update.sh /
