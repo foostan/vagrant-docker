@@ -1,0 +1,16 @@
+#!/bin/bash
+
+PORT_BLUE=8081
+PORT_GREEN=8082
+HOSTNAME=`ifconfig eth1 | grep inet | awk '{print $2}' | awk -F ':' '{print $2}'`
+
+case "$1" in
+  blue)
+      sudo iptables -t nat -A PREROUTING -d $HOSTNAME -p tcp --dport 80 -j DNAT --to $HOSTNAME:$PORT_BLUE
+      sudo iptables -t nat -D PREROUTING -d $HOSTNAME -p tcp --dport 80 -j DNAT --to $HOSTNAME:$PORT_GREEN
+      ;;
+  green)
+      sudo iptables -t nat -A PREROUTING -d $HOSTNAME -p tcp --dport 80 -j DNAT --to $HOSTNAME:$PORT_GREEN
+      sudo iptables -t nat -D PREROUTING -d $HOSTNAME -p tcp --dport 80 -j DNAT --to $HOSTNAME:$PORT_BLUE
+      ;;
+esac
